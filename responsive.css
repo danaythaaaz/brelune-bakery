@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Brelune Bakery & Coffee - Responsive Design & Mobile Bottom Bar
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Mobile Sticky Bottom Navigation
+   -------------------------------------------------------------------------- */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--mobile-nav-height);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 20px rgba(74, 40, 24, 0.08);
+  z-index: 180;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  color: var(--color-charcoal-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  width: 20%;
+  padding: 0.4rem 0;
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-item.active, .mobile-nav-item:hover {
+  color: var(--color-dark-brown);
+}
+
+.mobile-nav-icon {
+  font-size: 1.25rem;
+  position: relative;
+}
+
+.mobile-badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: var(--color-dark-brown);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+
+/* Large Tablets & Small Desktops (max-width: 1080px) */
+@media (max-width: 1080px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .highlights-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .hero-grid {
+    gap: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Tablets (max-width: 860px) */
+@media (max-width: 860px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-floating-card {
+    display: none;
+  }
+
+  .hero-main-card {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hero-main-image {
+    height: 340px;
+  }
+
+  .promo-vouchers-strip,
+  .promo-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .product-modal-gallery {
+    min-height: 260px;
+    max-height: 280px;
+  }
+
+  .product-modal-info {
+    padding: 1.5rem;
+  }
+
+  .timeline-container {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .timeline-progress-bar-bg {
+    display: none;
+  }
+}
+
+/* Mobile Devices (max-width: 640px) */
+@media (max-width: 640px) {
+  body {
+    padding-bottom: var(--mobile-nav-height);
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-bottom-nav {
+    display: flex;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-section {
+    padding: 1.5rem 0 2.5rem 0;
+  }
+
+  .highlights-bar {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .product-image-box {
+    height: 145px;
+  }
+
+  .product-card-body {
+    padding: 0.85rem;
+  }
+
+  .product-title {
+    font-size: 0.95rem;
+  }
+
+  .product-desc {
+    display: none;
+  }
+
+  .product-price {
+    font-size: 0.92rem;
+  }
+
+  .product-add-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+  }
+
+  .category-tabs-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-tab-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .order-type-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-form-full {
+    grid-column: span 1;
+  }
+
+  .virtual-card {
+    height: 195px;
+    padding: 1.2rem;
+  }
+
+  .card-number-display {
+    font-size: 1.05rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: calc(var(--mobile-nav-height) + 16px);
+  }
+
+  .toast-message {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .modal-overlay {
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .modal-container {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-height: 88vh;
+  }
+}
